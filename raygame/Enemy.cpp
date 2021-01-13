@@ -8,12 +8,10 @@ Enemy::Enemy(int hp, int damage)
 
 void Enemy::attack(int damage)
 {
-	damage;
 }
 
-void Enemy::takeDamage(int playerDamage)
+void Enemy::takeDamage(int enemyDamage)
 {
-	m_health - playerDamage;
 }
 
 void Enemy::enemyMovement(float deltatime)
