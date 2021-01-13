@@ -7,9 +7,7 @@ Scene** Game::m_scenes = new Scene*;
 int Game::m_sceneCount = 0;
 int Game::m_currentSceneIndex = 0;
 
-//create the player and enemy
-Player* player = new Player(12, 6);
-Enemy* enemy = new Enemy(13, 7);
+
 
 
 Game::Game()
@@ -33,17 +31,16 @@ void Game::start()
 
 	SetTargetFPS(60);
 
-	
+	//create the player and enemy
+	player = new Player(10, 6);
+	enemy = new Enemy(12, 5);
 }
 
 void Game::update(float deltaTime)
 {
 	//test value modification
-	/*player->setHealth(10);
-	player->setDamage(5);
-	enemy->setHealth(100);
-	enemy->setDamage(20);*/
-
+	player->attack(enemy);
+	enemy->attack(player);
 
 	for (int i = 0; i < m_sceneCount; i++)
 	{
@@ -59,8 +56,8 @@ void Game::draw()
 	ClearBackground(RAYWHITE);
 
 	//Testing that values are changing
-	/*std::cout << "Player health and damage are" << player->getHealth() << " " << player->getDamage() << std::endl;
-	std::cout << "Enemy health and damage are" << enemy->getHealth() << " " << enemy->getDamage() << std::endl;*/
+	std::cout << "Player health and damage are " << player->getHealth() << " " << player->getDamage() << std::endl;
+	std::cout << "Enemy health and damage are " << enemy->getHealth() << " " << enemy->getDamage() << std::endl;
 
 	for (int i = 0; i < m_sceneCount; i++)
 	{
