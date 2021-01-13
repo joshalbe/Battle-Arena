@@ -1,6 +1,7 @@
 #pragma once
 #include "Actor.h"
 #include "Item.h"
+#include "Enemy.h"
 
 class Player : Actor {
 public:
@@ -12,8 +13,8 @@ public:
 	int getDamage() { return m_damage; }
 	void setDamage(int value) { m_damage = value; }
 
-	void attack(int damage);
-	void takeDamage(int enemyDamage);
+	void attack(Enemy* enemy);
+	void takeDamage(Enemy* enemy);
 	void playerMovement(float deltatime);
 
 private:
