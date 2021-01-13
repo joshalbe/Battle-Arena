@@ -1,7 +1,5 @@
 #include "Game.h"
 #include "raylib.h"
-#include "Player.h"
-#include "Enemy.h"
 #include <iostream>
 
 bool Game::m_gameOver = false;
