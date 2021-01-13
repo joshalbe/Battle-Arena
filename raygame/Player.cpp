@@ -7,15 +7,12 @@ Player::Player(int hp, int damage)
 	m_damage = damage;
 }
 
-void Player::attack(Enemy* enemy)
+void Player::attack(int damage)
 {
-	enemy->setHealth(m_damage);
 }
 
-void Player::takeDamage(Enemy* enemy)
+void Player::takeDamage(int enemyDamage)
 {
-	int enemyDamage = enemy->getDamage();
-	m_health -= enemyDamage;
 }
 
 void Player::playerMovement(float deltatime)
