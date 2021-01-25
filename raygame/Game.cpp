@@ -39,8 +39,8 @@ void Game::start()
 void Game::update(float deltaTime)
 {
 	//test value modification
-	player->attack(enemy);
-	enemy->attack(player);
+	//player->attack(enemy);
+	//enemy->attack(player);
 
 	for (int i = 0; i < m_sceneCount; i++)
 	{
@@ -56,8 +56,8 @@ void Game::draw()
 	ClearBackground(RAYWHITE);
 
 	//Testing that values are changing
-	std::cout << "Player health and damage are " << player->getHealth() << " " << player->getDamage() << std::endl;
-	std::cout << "Enemy health and damage are " << enemy->getHealth() << " " << enemy->getDamage() << std::endl;
+	//std::cout << "Player health and damage are " << player->getHealth() << " " << player->getDamage() << std::endl;
+	//std::cout << "Enemy health and damage are " << enemy->getHealth() << " " << enemy->getDamage() << std::endl;
 
 	for (int i = 0; i < m_sceneCount; i++)
 	{

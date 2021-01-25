@@ -1,4 +1,3 @@
-
 #include "Player.h"
 
 Player::Player(int hp, int damage) 
@@ -21,4 +20,5 @@ void Player::takeDamage(int attackDamage)
 
 void Player::playerMovement(float deltatime)
 {
+
 }
