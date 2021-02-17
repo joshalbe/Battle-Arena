@@ -1,7 +1,7 @@
 #pragma once
 #include "Actor.h"
 
-class Character : Actor 
+class Character : public Actor 
 {
 public:
 

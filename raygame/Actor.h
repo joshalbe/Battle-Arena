@@ -193,7 +193,6 @@ protected:
     float m_maxSpeed;
     char m_icon;
 
-private:
     bool m_started;
     float m_collisionRadius;
     Actor* m_parent;

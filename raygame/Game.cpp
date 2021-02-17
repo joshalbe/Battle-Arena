@@ -31,9 +31,20 @@ void Game::start()
 
 	SetTargetFPS(60);
 
+	//initialize the scene the game takes place in
+	Scene* gameScene = new Scene();
+	addScene(gameScene);
+
+	//initialize the player's sprite
+	Sprite* newSprite = new Sprite("Images/enemyBlack5.png");
+
 	//create the player and enemy
-	player = new Player(10, 6);
+	player = new Player(10, 10, 5, newSprite, 50);
 	enemy = new Enemy(12, 5);
+
+	//add the player to the scene
+	gameScene->addActor(player);
+	//gameScene->addActor(enemy);
 }
 
 void Game::update(float deltaTime)
@@ -45,6 +56,8 @@ void Game::update(float deltaTime)
 	for (int i = 0; i < m_sceneCount; i++)
 	{
 		m_scenes[i]->update(deltaTime);
+		//check if the self destruct button was pressed
+		setGameOver(player->sendGameOver);
 	}
 }
 
@@ -53,7 +66,7 @@ void Game::draw()
 	BeginDrawing();
 
 	BeginMode2D(*m_camera);
-	ClearBackground(RAYWHITE);
+	ClearBackground(BLACK);
 
 	//Testing that values are changing
 	//std::cout << "Player health and damage are " << player->getHealth() << " " << player->getDamage() << std::endl;
