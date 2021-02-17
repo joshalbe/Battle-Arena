@@ -21,6 +21,7 @@ Player::Player(int hp, int damage)
 
 Player::Player(float x, float y, float collisionRadius, Sprite* sprite, float maxSpeed)
 {
+    //Transferred the actor contructor variables due to code complications, hardcoded a solution
     m_globalTransform = new MathLibrary::Matrix3();
     m_localTransform = new MathLibrary::Matrix3();
     m_rotation = new MathLibrary::Matrix3();
@@ -56,27 +57,32 @@ void Player::takeDamage(int attackDamage)
 
 void Player::movement()
 {
-    //move up input w
+    //move up with input "w"
     if (IsKeyDown(87))
     {
         m_velocity.y = -10;
     }
+    //move up with input "s"
     else if (IsKeyDown(83))
     {
         m_velocity.y = 10;
     }
+    //move up with input "a"
     else if (IsKeyDown(65))
     {
         m_velocity.x = -10;
     }
+    //move up with input "d"
     else if (IsKeyDown(68))
     {
         m_velocity.x = 10;
     }
+    //self destruct button: space bar ends the game
     else if (IsKeyDown(32)) 
     {
         sendGameOver = true;
     }
+    //otherwise, don't move
     else
     {
         m_velocity.x = 0;
@@ -84,9 +90,12 @@ void Player::movement()
     }
 }
 
+//every time the game updates
 void Player::update(float deltatime)
 {
+    //check movement
     movement();
+    //update the actor on deltatime
     Character::Actor::update(deltatime);
 
 }
